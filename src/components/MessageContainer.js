@@ -139,7 +139,7 @@ useEffect(() => {
     const fetchData = async () => {
       try {
 
-        const responsee = await apiGetGroup(selectedConversation._id);
+        const responsee = await apiGetGroup(selectedConversation?._id);
         // if(isgroups)
           setLeader(responsee.group.leader);
       } catch (error) {
@@ -148,7 +148,7 @@ useEffect(() => {
     };
 
     fetchData();
-}, [selectedConversation, selectedUpdateLeader, selectedAddDeputy]);
+}, [selectedConversation,setSelectedConversation, selectedUpdateLeader, selectedAddDeputy]);
 
 const handleUpdateNameGroup= async()=>{
   const response = await  apiUpdateNameGroup(selectedConversation._id,nameGroup)
