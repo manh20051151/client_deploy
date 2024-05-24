@@ -1,24 +1,24 @@
 const path = {
-    PUBLIC: '/',
-    HOME: 'home',
+    PUBLIC: 'client_deploy//',
+    HOME: 'client_deploy/home',
     ALL: '*',
     LOGIN: '',
-    FINAL_REGISTER: 'finalregister/:status',
-    RESET_PASSWORD: 'reset-password/:token',
-    PHONEBOOK:'phonebook',
-    HOMELAYOUT:'homeLayout',
+    FINAL_REGISTER: 'client_deploy/finalregister/:status',
+    RESET_PASSWORD: 'client_deploy/reset-password/:token',
+    PHONEBOOK:'client_deploy/phonebook',
+    HOMELAYOUT:'client_deploy/homeLayout',
     //member
-    MEMBER: 'member',
-    PERSONAL: 'personal',
+    MEMBER: 'client_deploy/member',
+    PERSONAL: 'client_deploy/personal',
 
     //admin
-    ADMIN: 'admin',
-    DASHBOARD: 'dashboard',
-    MANAGE_USER: 'manage-user',
+    ADMIN: 'client_deploy/admin',
+    DASHBOARD: 'client_deploy/dashboard',
+    MANAGE_USER: 'client_deploy/manage-user',
 
     //phonebook
-    ADDFRIEND: 'addFriend',
-    LISTFRIEND: 'listFriend',
+    ADDFRIEND: 'client_deploy/addFriend',
+    LISTFRIEND: 'client_deploy/listFriend',
 
 
 
