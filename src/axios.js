@@ -21,6 +21,7 @@ instance.interceptors.request.use(function (config){
 instance.interceptors.response.use(function (response){
     return response.data
 },function(error){
+    console.log("object");
     return error?.response?.data
 })
 
