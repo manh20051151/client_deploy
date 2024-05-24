@@ -140,7 +140,139 @@ const useGetConversations = () => {
     return ()=>socket?.off("SocketdeleteFriend")
  }, [socket])
 
-   
+useEffect( ()=>{
+    socket?.on("SocketupdateUserByAdminFR", async ()=>{
+      const getConversations = async ()=>{
+          setLoading(true)
+          try {
+              // console.log("213321312");
+              // const res = await fetch('http://localhost:5000/api/user/getUser')
+
+              const friend = await apiGetListFriend();
+              console.log("friend1:",friend.friendList);
+              //const sendersInfo = await Promise.all(friend.friendList.map(senderId => apiGetUserById(senderId)));
+              const sendersInfo = await Promise.all(friend.friendList.map(async (senderId) => {
+                  try {
+                      return await apiGetUserById(senderId);
+                  } catch (error) {
+                      console.error(`Error fetching user with ID ${senderId}:`, error);
+                      // Trả về một giá trị mặc định hoặc xử lý lỗi theo ý của bạn
+                      return null;
+                  }
+              }));
+              
+              console.log("sendersInfo1", sendersInfo);
+              // const data = await apiGetList()
+              const data = sendersInfo
+              const data2 = friend.friendList
+
+              // const data = await res.json()
+              console.log("data1:", data);
+              console.log("data2:", data2);
+              
+              if(data.error){
+                  throw new Error(data.error)
+              }
+              setConversations(data)
+          } catch (error) {
+              toast.error(error.message)
+          } finally{
+              setLoading(false)
+          }
+      }
+      getConversations();
+    })
+    return ()=>socket?.off("SocketupdateUserByAdminFR")
+ }, [socket])
+
+ useEffect( ()=>{
+    socket?.on("SocketdeleteUserByAdminFR", async ()=>{
+      const getConversations = async ()=>{
+          setLoading(true)
+          try {
+              // console.log("213321312");
+              // const res = await fetch('http://localhost:5000/api/user/getUser')
+
+              const friend = await apiGetListFriend();
+              console.log("friend1:",friend.friendList);
+              //const sendersInfo = await Promise.all(friend.friendList.map(senderId => apiGetUserById(senderId)));
+              const sendersInfo = await Promise.all(friend.friendList.map(async (senderId) => {
+                  try {
+                      return await apiGetUserById(senderId);
+                  } catch (error) {
+                      console.error(`Error fetching user with ID ${senderId}:`, error);
+                      // Trả về một giá trị mặc định hoặc xử lý lỗi theo ý của bạn
+                      return null;
+                  }
+              }));
+              
+              console.log("sendersInfo1", sendersInfo);
+              // const data = await apiGetList()
+              const data = sendersInfo
+              const data2 = friend.friendList
+
+              // const data = await res.json()
+              console.log("data1:", data);
+              console.log("data2:", data2);
+              
+              if(data.error){
+                  throw new Error(data.error)
+              }
+              setConversations(data)
+          } catch (error) {
+              toast.error(error.message)
+          } finally{
+              setLoading(false)
+          }
+      }
+      getConversations();
+    })
+    return ()=>socket?.off("SocketdeleteUserByAdminFR")
+ }, [socket])
+ useEffect( ()=>{
+    socket?.on("SocketdeleteFriendFr", async ()=>{
+      const getConversations = async ()=>{
+          setLoading(true)
+          try {
+              // console.log("213321312");
+              // const res = await fetch('http://localhost:5000/api/user/getUser')
+
+              const friend = await apiGetListFriend();
+              console.log("friend1:",friend.friendList);
+              //const sendersInfo = await Promise.all(friend.friendList.map(senderId => apiGetUserById(senderId)));
+              const sendersInfo = await Promise.all(friend.friendList.map(async (senderId) => {
+                  try {
+                      return await apiGetUserById(senderId);
+                  } catch (error) {
+                      console.error(`Error fetching user with ID ${senderId}:`, error);
+                      // Trả về một giá trị mặc định hoặc xử lý lỗi theo ý của bạn
+                      return null;
+                  }
+              }));
+              
+              console.log("sendersInfo1", sendersInfo);
+              // const data = await apiGetList()
+              const data = sendersInfo
+              const data2 = friend.friendList
+
+              // const data = await res.json()
+              console.log("data1:", data);
+              console.log("data2:", data2);
+              
+              if(data.error){
+                  throw new Error(data.error)
+              }
+              setConversations(data)
+          } catch (error) {
+              toast.error(error.message)
+          } finally{
+              setLoading(false)
+          }
+      }
+      getConversations();
+    })
+    return ()=>socket?.off("SocketdeleteFriendFr")
+ }, [socket])
     return {loading, conversations};
 
 
