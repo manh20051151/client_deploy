@@ -6,7 +6,7 @@ import avatar from '../assets/anhtam.png'
 const Conversation = ({conversation, lastIdx}) => {
   const conversationn = conversation.user
   const {selectedConversation, setSelectedConversation} = useConversation()
-  const isSelected = selectedConversation?._id === conversationn._id
+  const isSelected = selectedConversation?._id === conversationn?._id
   const {onlineUsers} = useSocketContext()
   console.log("online",onlineUsers);
   const isOnline = onlineUsers.includes(conversationn._id)
