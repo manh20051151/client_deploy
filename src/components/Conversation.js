@@ -9,7 +9,7 @@ const Conversation = ({conversation, lastIdx}) => {
   const isSelected = selectedConversation?._id === conversationn?._id
   const {onlineUsers} = useSocketContext()
   console.log("online",onlineUsers);
-  const isOnline = onlineUsers.includes(conversationn._id)
+  const isOnline = onlineUsers.includes(conversationn?._id)
   return (
     <div>
       <div className=  {`pt-3 pb-3  flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer
