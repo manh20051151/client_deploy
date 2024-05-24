@@ -148,7 +148,7 @@ useEffect(() => {
     };
 
     fetchData();
-}, [selectedConversation,setSelectedConversation, selectedUpdateLeader, selectedAddDeputy]);
+}, [selectedConversation, selectedUpdateLeader, selectedAddDeputy]);
 
 const handleUpdateNameGroup= async()=>{
   const response = await  apiUpdateNameGroup(selectedConversation._id,nameGroup)
