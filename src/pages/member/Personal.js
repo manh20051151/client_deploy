@@ -27,7 +27,7 @@ const Personal = () => {
 
  useEffect(() => {
   const handleSocketUpdate = async () => {
-    await dispatch(getCurrent());
+    dispath(getCurrent());
   };
 
   socket?.on("SocketupdateUserByAdmin", handleSocketUpdate);
@@ -35,7 +35,7 @@ const Personal = () => {
   return () => {
     socket?.off("SocketupdateUserByAdmin", handleSocketUpdate);
   };
-}, [socket, dispatch]);
+}, [socket, dispath]);
   
   const {
     register,
